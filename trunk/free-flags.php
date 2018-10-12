@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Free Flags
  * Plugin URI: #
- * Description: Inserts a flag in a blog text via shortcode. eg. Put <code>[flag country="fr"]</code>.
+ * Description: Inserts a flag in a blog text via shortcode. eg. Put <code>[flag country="fr"]</code>. Flag images provided by <a href="https://www.countryflags.io">countryflags.io</a>.
  * Author: Bimal Poudel
  * Version: 1.0.0
  * Author URI: http://bimal.org.np/
