@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name: World Flags
+ * Plugin Name: Free Flags
  * Plugin URI: #
- * Description: World flags
+ * Description: Inserts a flag in a blog text via shortcode. eg. Put <code>[flag country="fr"]</code>.
  * Author: Bimal Poudel
  * Version: 1.0.0
  * Author URI: http://bimal.org.np/
