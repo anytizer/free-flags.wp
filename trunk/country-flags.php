@@ -1,13 +1,13 @@
 <?php
 /**
- * Plugin Name: Free Flags
+ * Plugin Name: Country Flags
  * Plugin URI: #
- * Description: Inserts a flag in a blog text via shortcode. eg. Put <code>[flag country="fr"]</code>. Flag images provided by <a href="https://www.countryflags.io">countryflags.io</a>.
+ * Description: Inserts a flag image in a blog text via shortcode. eg. Put <code>[flag country="fr"]</code>. Flag images provided by: <a href="http://countryflags.io/" target="_blank">CountryFlags.io</a> API by <a href="https://warrigal.studio/">Warrigal.Studio</a>
  * Author: Bimal Poudel
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author URI: http://bimal.org.np/
  */
-function world_flag($attributes=array(), $content=null)
+function cfio_country_flag($attributes=array(), $content=null)
 {
 	$valid_countries = array(
 		"AD",
@@ -265,20 +265,35 @@ function world_flag($attributes=array(), $content=null)
 		"ZW",
 	);
 	
+	$valid_sizes = array(
+		"64", "48", "32", "24", "16",
+	);
+	
+	$requested_size = "16";
+	if(isset($attributes["size"]))
+	{
+		if(in_array($attributes["size"], $valid_sizes))
+		{
+			$requested_size = $attributes["size"];
+		}
+	}
+	
 	$img = "";
 	if(isset($attributes["country"]))
 	{
 		$requested_country = strtoupper($attributes["country"]);
 		if(in_array($requested_country, $valid_countries))
 		{
-			$img = "<img src=\"https://www.countryflags.io/{$requested_country}/flat/32.png\" />";
+			$img = "<img src=\"https://www.countryflags.io/{$requested_country}/flat/{$requested_size}.png\" />";
 		}
 	}
-
+	
 	return $img;
 }
 
+
 /**
- * [flag country="fr"]
+ * eg. [flag country="fr"]
+ * eg. [flag country="fr" size="64"]
  */
-add_shortcode("flag", "world_flag");
+add_shortcode("flag", "cfio_country_flag");
